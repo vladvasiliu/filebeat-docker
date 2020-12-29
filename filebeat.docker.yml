@@ -19,3 +19,8 @@ output.elasticsearch:
 monitoring:
   enabled: true
   elasticsearch:
+
+setup.ilm:
+  rollover_alias: '${FILEBEAT_ALIAS:filebeat-%{[agent.version]}}'
+  pattern: '${FILEBEAT_PATTERN:{now/M{yyyy.MM}}-000001}'
+  policy_name: '${FILEBEAT_POLICY:filebeat}'
